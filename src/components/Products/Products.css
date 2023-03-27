@@ -1,0 +1,56 @@
+.card {
+    width: 300px;
+    height: 509px;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    position: relative;
+}
+
+.card .img img{
+    width: 286px;
+    height: 286px;
+    margin: 7px;
+    border-radius: 8px;
+}
+
+.card-body{
+    margin: 0 14px 14px 14px;
+    position: relative;
+}
+.card-body h6{
+    margin: 0;
+    font-size: 21px;
+    font-weight: 400;
+}
+.card-body .price{
+    font-size: 17px;
+    font-size: 400;
+    margin: 0;
+}
+.card-body .seller{
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+.card-body .ratings{
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.card-footer button{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: #FFE0B3;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.card-optional-info{
+    position: absolute;
+    left: 0;
+    bottom: -66px;
+}
