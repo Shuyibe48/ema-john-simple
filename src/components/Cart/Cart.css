@@ -1,0 +1,31 @@
+.cart-body{
+    margin-left: 26px;
+}
+.cart-body h5{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+}
+.cart-body p{
+    font-size: 17px;
+}
+.cart-body h6{
+    font-size: 21px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.cart-body button{
+    width: 90%;
+    display: block;
+    margin: 16px 0;
+    font-size: 17px;
+    color: #fff;
+}
+
+.clear-btn{
+    background-color: #FF3030;
+}
+.review-btn{
+    background-color: #FF9900;
+}

@@ -13,4 +13,7 @@
 
 .cart-container{
     background-color: #FFE0B3;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
