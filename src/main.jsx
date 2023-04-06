@@ -12,6 +12,8 @@ import ManageInventory from './components/ManageInventory/ManageInventory';
 import Login from './components/Login/Login';
 import Order from './components/Order/Order';
 import cardProductsLoader from './Loader/loader';
+import OrderProducts from './components/OrderProducts/OrderProducts';
+import ProceedOrder from './components/ProceedOrder/ProceedOrder';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: 'orderReview',
         element: <OrderReview/>
+      },
+      {
+        path: 'orderProceed',
+        element: <ProceedOrder/>
       },
       {
         path: 'manageInventory',

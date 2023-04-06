@@ -2,8 +2,8 @@ import React from 'react';
 import './OrderProducts.css'
 import { TrashIcon } from '@heroicons/react/24/solid'
 
-const OrderProducts = ({ orderProduct }) => {
-    const { img, name, price, shipping } = (orderProduct)
+const OrderProducts = ({ orderProduct, handleRemoveProduct }) => {
+    const { img, name, price, shipping, id } = (orderProduct)
     return (
         <div className='order-cart'>
             <div className='order-cart-body'>
@@ -17,7 +17,7 @@ const OrderProducts = ({ orderProduct }) => {
                 </div>
             </div>
             <div>
-                <TrashIcon className="trash-icon" />
+                <TrashIcon onClick={() => handleRemoveProduct(id)} className="trash-icon" />
             </div>
         </div>
     );
