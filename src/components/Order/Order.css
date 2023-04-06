@@ -1,0 +1,6 @@
+.order{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin: 0 82px 0 104px;
+}
