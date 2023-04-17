@@ -14,11 +14,12 @@ import Order from './components/Order/Order';
 import cardProductsLoader from './Loader/loader';
 import OrderProducts from './components/OrderProducts/OrderProducts';
 import ProceedOrder from './components/ProceedOrder/ProceedOrder';
+import SignUp from './components/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>,
+    element: <App />,
     children: [
       {
         path: '/',
@@ -26,29 +27,33 @@ const router = createBrowserRouter([
       },
       {
         path: 'order',
-        element: <Order/>,
+        element: <Order />,
         loader: cardProductsLoader
       },
       {
         path: 'orderReview',
-        element: <OrderReview/>
+        element: <OrderReview />
       },
       {
         path: 'orderProceed',
-        element: <ProceedOrder/>
+        element: <ProceedOrder />
       },
       {
         path: 'manageInventory',
-        element: <ManageInventory/>
+        element: <ManageInventory />
       },
       {
         path: 'login',
-        element: <Login/>
+        element: <Login />
+      },
+      {
+        path: 'signup',
+        element: <SignUp />
       }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <RouterProvider router={router} />
 )

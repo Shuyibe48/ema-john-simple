@@ -40,7 +40,7 @@ const Shop = () => {
             product.quantity = 1
             newCart = [...cart, product]
         } else {
-            exist.quantity = + 1
+            exist.quantity += 1
             const remaining = cart.filter(productInCart => productInCart.id !== product.id)
             newCart = [...remaining, exist]
         }
