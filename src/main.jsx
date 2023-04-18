@@ -16,6 +16,7 @@ import OrderProducts from './components/OrderProducts/OrderProducts';
 import ProceedOrder from './components/ProceedOrder/ProceedOrder';
 import SignUp from './components/SignUp/SignUp';
 import AuthProviders from './providers/AuthProviders';
+import PrivateRoute from './route/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -28,20 +29,20 @@ const router = createBrowserRouter([
       },
       {
         path: 'order',
-        element: <Order />,
+        element: <PrivateRoute><Order /></PrivateRoute>,
         loader: cardProductsLoader
       },
       {
         path: 'orderReview',
-        element: <OrderReview />
+        element: <PrivateRoute><OrderReview /></PrivateRoute>
       },
       {
         path: 'orderProceed',
-        element: <ProceedOrder />
+        element: <PrivateRoute><ProceedOrder /></PrivateRoute>
       },
       {
         path: 'manageInventory',
-        element: <ManageInventory />
+        element: <PrivateRoute><ManageInventory /></PrivateRoute>
       },
       {
         path: 'login',
