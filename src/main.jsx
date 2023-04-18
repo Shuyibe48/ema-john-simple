@@ -15,6 +15,7 @@ import cardProductsLoader from './Loader/loader';
 import OrderProducts from './components/OrderProducts/OrderProducts';
 import ProceedOrder from './components/ProceedOrder/ProceedOrder';
 import SignUp from './components/SignUp/SignUp';
+import AuthProviders from './providers/AuthProviders';
 
 const router = createBrowserRouter([
   {
@@ -55,5 +56,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <AuthProviders>
+    <RouterProvider router={router} />
+  </AuthProviders>
 )

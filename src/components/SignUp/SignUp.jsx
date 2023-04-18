@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const SignUp = () => {
+    const [error, setError] = useState('')
+    const {signUp} = useContext(AuthContext)
+    
+    const handleSignUp = (event) => {
+        event.preventDefault()
+
+        const form = event.target
+        const email = form.email.value
+        const password = form.password.value
+        const confirm = form.confirm.value
+        
+        if(password !== confirm){
+            setError('Password didn\'t match')
+            return
+        }else if(password.length < 8){
+            setError('Password should be 8 character')
+            return
+        }
+        form.reset()
+
+        signUp(email, password)
+        .then(result => {
+            const user = result.user
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message
+            console.log(errorMessage);
+        })
+    }
+
+
     return (
         <div className='form-container'>
             <h2 className='form-title'>Sign Up</h2>
-            <form>
+            <form onSubmit={handleSignUp}>
                 <div className="form-control">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" id="" required />
@@ -22,7 +55,7 @@ const SignUp = () => {
                 <input className='btn-submit' type="submit" value="Sign Up" />
             </form>
             <p><small>Already have an account? <Link to="/login">Login</Link></small></p>
-            <p className='text-error'>error</p>
+            <p className='text-error'>{error}</p>
         </div>
     );
 };
