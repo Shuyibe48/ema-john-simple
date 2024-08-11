@@ -9,6 +9,7 @@ const auth = getAuth(app);
 const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [cartPrice, setCartPrice] = useState(0)
 
     const signUp = (email, password) => {
         setLoading(true)
@@ -42,7 +43,9 @@ const AuthProviders = ({ children }) => {
         signUp,
         signIn,
         logOut,
-        loading
+        loading,
+        cartPrice,
+        setCartPrice
     }
 
     return (

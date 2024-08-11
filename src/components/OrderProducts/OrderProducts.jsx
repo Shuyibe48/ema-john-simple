@@ -3,7 +3,7 @@ import './OrderProducts.css'
 import { TrashIcon } from '@heroicons/react/24/solid'
 
 const OrderProducts = ({ orderProduct, handleRemoveProduct }) => {
-    const { img, name, price, shipping, id, quantity } = (orderProduct)
+    const { img, name, price, shipping, _id, quantity } = (orderProduct)
 
     let totalPrice = price * quantity
 
@@ -22,7 +22,7 @@ const OrderProducts = ({ orderProduct, handleRemoveProduct }) => {
                 </div>
             </div>
             <div>
-                <TrashIcon onClick={() => handleRemoveProduct(id)} className="trash-icon" />
+                <TrashIcon onClick={() => handleRemoveProduct(_id)} className="trash-icon" />
             </div>
         </div>
     );
