@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Cart.css";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
-import {loadStripe} from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 import { connectAuthEmulator } from "firebase/auth/cordova";
 
 const Cart = ({ carts, handleClearCart, btnText, linkText }) => {
@@ -24,16 +24,29 @@ const Cart = ({ carts, handleClearCart, btnText, linkText }) => {
   setCartPrice(grandTotal);
 
   const checkoutOrder = async () => {
-    const stripe = await loadStripe('pk_test_51PmZ97FW0ZiV4vTBvuzzsNhtZwSIACZvaDASdP9EOe45vYpQ9fHdAuyr96dNSuoLtTww36DW8H5IX4U6XNTlYjy300x4U3H0gj')
+    const stripe = await loadStripe(
+      "pk_test_51PmZ97FW0ZiV4vTBvuzzsNhtZwSIACZvaDASdP9EOe45vYpQ9fHdAuyr96dNSuoLtTww36DW8H5IX4U6XNTlYjy300x4U3H0gj"
+    );
 
-    const result = await fetch('http://localhost:5000/api/create-checkout-session', {
-        method: 'POST',
+    const response = await fetch(
+      "http://localhost:5000/create-payment-intent",
+      {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({grandTotal})
-    })
-  }
+        body: JSON.stringify({ products: carts }),
+      }
+    );
+
+    const session = await response.json();
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      console.log(result.error);
+    }
+  };
 
   return (
     <div className="cart-body">
@@ -47,9 +60,9 @@ const Cart = ({ carts, handleClearCart, btnText, linkText }) => {
         Clear Cart
       </button>
       <span onClick={checkoutOrder}>
-        <Link className="review-btn" to={linkText}>
-          <button className="review-btn">{btnText}</button>
-        </Link>
+        {/* <Link className="review-btn" to={linkText}> */}
+        <button className="review-btn">{btnText}</button>
+        {/* </Link> */}
       </span>
     </div>
   );
